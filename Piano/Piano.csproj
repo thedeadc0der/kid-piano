@@ -57,6 +57,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Note.cs" />
     <Compile Include="PianoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
