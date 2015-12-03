@@ -11,20 +11,63 @@ using System.Windows.Forms;
 
 namespace Piano
 {
+    public partial class NoteEvent: EventArgs {
+        private Note note_;
+
+        public NoteEvent(Note n)
+        {
+            this.note_ = n;
+        }
+
+        internal Note Note {
+            get{ return note_; }
+            set { note_ = value; }
+        }
+    }
+
     public partial class PianoControl : UserControl
     {
         // Appearance
         private int keyLength_;
         private int startOctave_;
         private bool showNotes_;
+        private bool highlightNotes_;
 
         // Behavior
         LinkedList<Note> pressedKeys_;
 
+        // Events
+        public event EventHandler OnPlay;
+        public event EventHandler OnRelease;
+
+        // Properties
         public int KeyLength
         {
             get { return keyLength_; }
             set { keyLength_ = value; }
+        }
+
+        public bool ShowGutter
+        {
+            get { return showNotes_; }
+            set {
+                showNotes_ = value;
+                Invalidate();
+            }
+        }
+
+        public bool HighlightNotes {
+            get { return highlightNotes_; }
+            set { highlightNotes_ = value; }
+        }
+
+        public int Octave {
+            get { return startOctave_; }
+            set { startOctave_ = value; }
+        }
+
+        public LinkedList<Note> PlayingNotes {
+            get { return pressedKeys_; }
         }
 
         public PianoControl()
@@ -32,10 +75,13 @@ namespace Piano
             InitializeComponent();
             this.DoubleBuffered = true;
             this.ResizeRedraw   = true;
-            this.KeyLength      = 24;
+            this.KeyLength      = 34;
             this.showNotes_     = true;
             this.startOctave_   = 3;
+            this.highlightNotes_ = true;
             this.pressedKeys_   = new LinkedList<Note>();
+            this.OnPlay         = new EventHandler(OnPlayKey);
+            this.OnRelease      = new EventHandler(OnReleaseKey);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -64,7 +110,7 @@ namespace Piano
 
                 Brush noteBrush = whiteBrush;
 
-                if( pressedKeys_.Find(currentNote) != null )
+                if( (pressedKeys_.Find(currentNote) != null) && highlightNotes_ )
                     noteBrush = pressedBrush;
 
                 Rectangle thisKey = new Rectangle(xStart, 0, KeyLength, ClientRectangle.Height),
@@ -88,7 +134,7 @@ namespace Piano
 
                 Brush noteBrush = blackBrush;
 
-                if( pressedKeys_.Find(currentNote.getBlackOf()) != null )
+                if( (pressedKeys_.Find(currentNote.getBlackOf()) != null) && highlightNotes_ )
                     noteBrush = pressedBrush;
 
                 Rectangle blackKey = new Rectangle(xBlackStart, 0, blackLength, blackHeight);
@@ -113,7 +159,7 @@ namespace Piano
                     x += ((float)kActualKeyLength - size.Width) / 2.0F;
 
                     Brush brush = whiteBrush;
-                    if (pressedKeys_.Find(currentNote) != null)
+                    if ( (pressedKeys_.Find(currentNote) != null) && highlightNotes_ )
                         brush = pressedBrush;
 
                     e.Graphics.DrawString(currentNote.ToString(), font, brush, x, y, format);
@@ -162,6 +208,7 @@ namespace Piano
 
             if( pressedKeys_.Find(n) == null){
                 pressedKeys_.AddLast(n);
+                OnPlay(this, new NoteEvent(n));
                 Invalidate();
             }
         }
@@ -169,6 +216,7 @@ namespace Piano
         private void removeNote( Note n){
             if (n != null){
                 pressedKeys_.Remove(n);
+                OnRelease(this, new NoteEvent(n));
                 Invalidate();
             }
         }
@@ -216,6 +264,14 @@ namespace Piano
         protected override void OnMouseUp(MouseEventArgs e){
             base.OnMouseUp(e);
             removeNote(getNoteFromMouse(e.Location));
+        }
+
+        protected void OnPlayKey(object sender, EventArgs e){
+
+        }
+
+        protected void OnReleaseKey( object sender, EventArgs e){
+
         }
     }
 }
