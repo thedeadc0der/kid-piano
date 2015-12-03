@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Piano
 {
-    enum NomNote
+    public enum NomNote
     {
         Invalide,
         Do, DoDiese,
@@ -18,7 +18,7 @@ namespace Piano
         Si
     }
 
-    class Note
+    public class Note
     {
         private NomNote nom_;
         private int octave_;
@@ -141,11 +141,16 @@ namespace Piano
         public override string ToString(){
             switch( Nom){
                 case NomNote.Do: return "Do";
+                case NomNote.DoDiese: return "Do#";
                 case NomNote.Re: return "Ré";
+                case NomNote.ReDiese: return "Ré#";
                 case NomNote.Mi: return "Mi";
                 case NomNote.Fa: return "Fa";
+                case NomNote.FaDiese: return "Fa#";
                 case NomNote.Sol: return "Sol";
+                case NomNote.SolDiese: return "Sol#";
                 case NomNote.La: return "La";
+                case NomNote.LaDiese: return "La#";
                 case NomNote.Si: return "Si";
                 default: return "";
             }
