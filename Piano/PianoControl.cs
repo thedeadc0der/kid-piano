@@ -101,7 +101,6 @@ namespace Piano
                 e.Graphics.FillRectangle(gutterBrush, gutter);
 
                 Font font = new Font("Monospace", 8);
-                SolidBrush brush = new SolidBrush(Color.White);
                 StringFormat format = new StringFormat();
                 float x, y = 2.0F;
 
@@ -113,8 +112,15 @@ namespace Piano
                     x = (float)kActualKeyLength * i;
                     x += ((float)kActualKeyLength - size.Width) / 2.0F;
 
+                    Brush brush = whiteBrush;
+                    if (pressedKeys_.Find(currentNote) != null)
+                        brush = pressedBrush;
+
                     e.Graphics.DrawString(currentNote.ToString(), font, brush, x, y, format);
                 }
+            } else {
+                Rectangle line = new Rectangle(0, 0, ClientRectangle.Width, 2);
+                e.Graphics.FillRectangle(gutterBrush, line);
             }
         }
 
