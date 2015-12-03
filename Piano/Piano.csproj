@@ -97,7 +97,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
+    <None Include="assets\la.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\do.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\fa.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\mi.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\re.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\si.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\sol.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
