@@ -137,5 +137,18 @@ namespace Piano
             Note o = (Note)obj;
             return (Nom == o.Nom && Octave == o.Octave);
         }
+
+        public override string ToString(){
+            switch( Nom){
+                case NomNote.Do: return "Do";
+                case NomNote.Re: return "Ré";
+                case NomNote.Mi: return "Mi";
+                case NomNote.Fa: return "Fa";
+                case NomNote.Sol: return "Sol";
+                case NomNote.La: return "La";
+                case NomNote.Si: return "Si";
+                default: return "";
+            }
+        }
     }
 }
