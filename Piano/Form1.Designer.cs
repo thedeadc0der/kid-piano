@@ -73,8 +73,6 @@
             "Mode ...",
             "Mode N"});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.MaximumSize = new System.Drawing.Size(240, 0);
-            this.listBox1.MinimumSize = new System.Drawing.Size(240, 0);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(240, 271);
             this.listBox1.TabIndex = 0;
@@ -82,6 +80,7 @@
             // pianoControl1
             // 
             this.pianoControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pianoControl1.KeyLength = 24;
             this.pianoControl1.Location = new System.Drawing.Point(0, 331);
             this.pianoControl1.MaximumSize = new System.Drawing.Size(0, 128);
             this.pianoControl1.Name = "pianoControl1";
