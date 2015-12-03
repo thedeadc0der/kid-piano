@@ -99,6 +99,22 @@ namespace Piano
             if ( showNotes_){
                 Rectangle gutter = new Rectangle(0, 0, ClientRectangle.Width, 18 );
                 e.Graphics.FillRectangle(gutterBrush, gutter);
+
+                Font font = new Font("Monospace", 8);
+                SolidBrush brush = new SolidBrush(Color.White);
+                StringFormat format = new StringFormat();
+                float x, y = 2.0F;
+
+                currentNote = new Note(NomNote.Do, startOctave_);
+                for ( int i=0; i < kNumberOfKeys; ++i, currentNote = currentNote.next()){
+                    String toDraw = currentNote.ToString();
+                    SizeF size = e.Graphics.MeasureString(toDraw, font);
+
+                    x = (float)kActualKeyLength * i;
+                    x += ((float)kActualKeyLength - size.Width) / 2.0F;
+
+                    e.Graphics.DrawString(currentNote.ToString(), font, brush, x, y, format);
+                }
             }
         }
 
