@@ -30,11 +30,16 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.playButton = new System.Windows.Forms.Button();
+            this.recordButton = new System.Windows.Forms.Button();
+            this.helpButton = new System.Windows.Forms.Button();
+            this.aboutButton = new System.Windows.Forms.Button();
             this.pianoControl1 = new Piano.PianoControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -56,26 +61,72 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Size = new System.Drawing.Size(838, 271);
             this.splitContainer1.SplitterDistance = 279;
             this.splitContainer1.TabIndex = 2;
             // 
-            // listBox1
+            // tableLayoutPanel1
             // 
-            this.listBox1.CausesValidation = false;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Mode 1",
-            "Mode 2",
-            "Mode 3",
-            "Mode ...",
-            "Mode N"});
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(240, 271);
-            this.listBox1.TabIndex = 0;
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.playButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.recordButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.helpButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.aboutButton, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 271);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // playButton
+            // 
+            this.playButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playButton.Location = new System.Drawing.Point(3, 3);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(273, 23);
+            this.playButton.TabIndex = 0;
+            this.playButton.Text = "Jouer";
+            this.playButton.UseVisualStyleBackColor = true;
+            // 
+            // recordButton
+            // 
+            this.recordButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.recordButton.Location = new System.Drawing.Point(3, 32);
+            this.recordButton.Name = "recordButton";
+            this.recordButton.Size = new System.Drawing.Size(273, 23);
+            this.recordButton.TabIndex = 1;
+            this.recordButton.Text = "Enregistrer";
+            this.recordButton.UseVisualStyleBackColor = true;
+            // 
+            // helpButton
+            // 
+            this.helpButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.helpButton.Location = new System.Drawing.Point(3, 61);
+            this.helpButton.Name = "helpButton";
+            this.helpButton.Size = new System.Drawing.Size(273, 23);
+            this.helpButton.TabIndex = 2;
+            this.helpButton.Text = "Aide";
+            this.helpButton.UseVisualStyleBackColor = true;
+            // 
+            // aboutButton
+            // 
+            this.aboutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aboutButton.Location = new System.Drawing.Point(3, 90);
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(273, 23);
+            this.aboutButton.TabIndex = 3;
+            this.aboutButton.Text = "A Propos...";
+            this.aboutButton.UseVisualStyleBackColor = true;
             // 
             // pianoControl1
             // 
@@ -98,8 +149,10 @@
             this.Name = "Form1";
             this.Text = "Piano";
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -109,7 +162,11 @@
         private PianoControl pianoControl1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Button recordButton;
+        private System.Windows.Forms.Button helpButton;
+        private System.Windows.Forms.Button aboutButton;
     }
 }
 
