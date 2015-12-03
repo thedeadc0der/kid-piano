@@ -59,9 +59,7 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Note.cs" />
-    <Compile Include="PianoControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="PianoControl.cs" />
     <Compile Include="PianoControl.Designer.cs">
       <DependentUpon>PianoControl.cs</DependentUpon>
     </Compile>
@@ -98,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Piano Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Piano Icon Small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
